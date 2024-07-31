@@ -1,6 +1,5 @@
 import './App.css';
 import Formulario from './Formulario';
-import Ruleta from './Ruleta';
 
 function App() {
   return (
