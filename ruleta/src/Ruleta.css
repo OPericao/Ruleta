@@ -1,0 +1,37 @@
+.ruleta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .ruleta {
+    width: 200px;
+    height: 200px;
+    border: 10px solid #333;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    overflow: hidden;
+  }
+  
+  .ruleta.spinning {
+    transition-timing-function: ease-out;
+  }
+
+  .segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: lightcoral;
+    border: 1px solid #333;
+    box-sizing: border-box;
+    transform-origin: 100% 100%;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  

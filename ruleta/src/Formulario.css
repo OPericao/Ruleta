@@ -1,0 +1,38 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .title {
+    margin-bottom: 20px;
+  }
+  
+  .items {
+    width: 100%; /* Opcional: asegura que la lista ocupe todo el ancho disponible */
+    max-width: 600px; /* Opcional: limita el ancho máximo de la lista */
+    margin: 0; /* Elimina los márgenes laterales de la lista */
+    padding: 0; /* Elimina el relleno interno de la lista */
+  }
+  
+  .list-item {
+    margin-bottom: 15px; /* Espaciado entre los elementos de la lista */
+    width: 100%; /* Asegura que cada elemento de la lista ocupe todo el ancho disponible */
+  }
+  
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra el contenido horizontalmente */
+  }
+  
+  .input {
+    width: 100%; /* Asegura que el campo de texto ocupe todo el ancho disponible del contenedor */
+    max-width: 500px; /* Opcional: limita el ancho máximo del campo de texto */
+  }
+  
+  .button {
+    margin-left: 2.1rem;
+  }
+  
