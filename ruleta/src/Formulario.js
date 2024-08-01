@@ -10,13 +10,13 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Ruleta from "./Ruleta";
 import FormularioParticipante from "./FormularioParticipante";
 import "./Formulario.css";
-import ironIcon from "./ironIcon.png";
-import bronzeIcon from "./bronzeIcon.png";
-import silverIcon from "./silverIcon.png";
-import goldIcon from "./goldIcon.png";
-import platinumIcon from "./platinumIcon.png";
-import emeraldIcon from "./emeraldIcon.png";
-import diamondIcon from "./diamondIcon.png";
+import ironIcon from "./assets/ironIcon.png";
+import bronzeIcon from "./assets/bronzeIcon.png";
+import silverIcon from "./assets/silverIcon.png";
+import goldIcon from "./assets/goldIcon.png";
+import platinumIcon from "./assets/platinumIcon.png";
+import emeraldIcon from "./assets/emeraldIcon.png";
+import diamondIcon from "./assets/diamondIcon.png";
 
 const ratingIcons = {
     1: ironIcon,
