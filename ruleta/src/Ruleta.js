@@ -29,6 +29,10 @@ const Ruleta = ({ data, onWinner, onResetParticipants }) => {
     const alertRef = useRef(null);
 
     const handleSpinClick = () => {
+        if (winnersHistory.every(winner => winner !== null)) {
+            onResetParticipants();
+            setWinnersHistory(Array(5).fill(null));
+        }
         const newPrizeNumber = Math.floor(Math.random() * data.length);
         setPrizeNumber(newPrizeNumber);
         setMustSpin(true);
@@ -56,10 +60,10 @@ const Ruleta = ({ data, onWinner, onResetParticipants }) => {
 
         if (winnersHistory.every(winner => winner !== null)) {
             const difference = Math.abs(winnersRatingSum - totalRemainingRating);
-            if (difference > 4) {
+            if (difference > 6) {
                 setBalanceMessage("Los equipos están desbalanceados.");
                 setShowAlert(true);
-                onResetParticipants(); // Notificar al formulario que debe restaurar la lista
+                onResetParticipants();
                 setWinnersHistory(Array(5).fill(null));
             } else {
                 setBalanceMessage("");

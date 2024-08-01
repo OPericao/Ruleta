@@ -30,11 +30,11 @@ const Formulario = () => {
     const [showForm, setShowForm] = useState(false);
     
     const [inputData, setInputData] = useState([
-        { id: uuidv4(), text: "Pericles", rating: 6 },
+        { id: uuidv4(), text: "Pericles", rating: 7 },
         { id: uuidv4(), text: "Rego", rating: 7 },
         { id: uuidv4(), text: "Guillén", rating: 7 },
-        { id: uuidv4(), text: "Iván", rating: 4 },
-        { id: uuidv4(), text: "Antonetti", rating: 5 },
+        { id: uuidv4(), text: "Iván", rating: 7 },
+        { id: uuidv4(), text: "Antonetti", rating: 7 },
     ]);
 
     const [initialData, setInitialData] = useState(inputData);
