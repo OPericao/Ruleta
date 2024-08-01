@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Wheel } from "react-custom-roulette";
 
 import Divider from '@mui/material/Divider';
@@ -21,12 +21,26 @@ const Ruleta = ({ data, onWinner }) => {
     const [prizeNumber, setPrizeNumber] = useState(0);
     const [winner, setWinner] = useState(null);
     const [winnersHistory, setWinnersHistory] = useState(Array(5).fill(null)); // Inicialmente lleno de null
+    const [rouletteData, setRouletteData] = useState(data);
 
     const handleSpinClick = () => {
         const newPrizeNumber = Math.floor(Math.random() * data.length);
         setPrizeNumber(newPrizeNumber);
         setMustSpin(true);
     };
+
+    useEffect(() => {
+        const addShortString = data.map((item) => {
+          return {
+            completeOption: item.text,
+            option:
+              item.text.length >= 30
+                ? item.text.substring(0, 30).trimEnd() + "..."
+                : item.text
+          };
+        });
+        setRouletteData(addShortString);
+      }, [data]);
 
     const handleStopSpinning = () => {
         setMustSpin(false);
@@ -61,7 +75,7 @@ const Ruleta = ({ data, onWinner }) => {
                     mustStartSpinning={mustSpin}
                     spinDuration={[0.2]}
                     prizeNumber={prizeNumber}
-                    data={data}
+                    data={rouletteData}
                     outerBorderColor={["#ccc"]}
                     outerBorderWidth={[9]}
                     innerBorderColor={["#f2f2f2"]}
@@ -69,26 +83,24 @@ const Ruleta = ({ data, onWinner }) => {
                     radiusLineWidth={[1]}
                     textColors={["#f5f5f5"]}
                     textDistance={55}
-                    fontSize={[10]}
+                    fontSize={[20]}
                     backgroundColors={[
-                        "#3f297e",
-                        "#175fa9",
-                        "#169ed8",
-                        "#239b63",
-                        "#64b031",
-                        "#efe61f",
-                        "#f7a416",
-                        "#e6471d",
-                        "#dc0936",
-                        "#e5177b",
-                        "#be1180",
-                        "#871f7f"
+                        "#E57373",
+                        "#81C784",
+                        "#64B5F6",
+                        "#BA68C8",
+                        "#FF8A65",
+                        "#4FC3F7",
+                        "#FFD54F",
+                        "#4DB6AC",
+                        "#A1887F",
+                        "#90A4AE"
                     ]}
                     onStopSpinning={handleStopSpinning}
                 />
-                <button className="button roulette-button" onClick={handleSpinClick}>
+                {data.length !== 1 && <button className="button roulette-button" onClick={handleSpinClick}>
                     Girar
-                </button>
+                </button>}
                 <div className="stack-container">
                   <Stack
                       direction="row"

@@ -6,82 +6,95 @@
 }
 
 .title {
+  width: 100%;
+  text-align: center;
   margin-bottom: 20px;
 }
 
 .items {
-  width: 100%; /* Opcional: asegura que la lista ocupe todo el ancho disponible */
-  max-width: 600px; /* Limita el ancho máximo de la lista */
-  margin: 0; /* Elimina los márgenes laterales de la lista */
-  padding: 0; /* Elimina el relleno interno de la lista */
+  width: 100%;
+  max-width: 100%; /* Ajusta para usar el espacio disponible */
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
 .list-item {
-  margin-bottom: 15px; /* Espaciado entre los elementos de la lista */
-  width: 100%; /* Asegura que cada elemento de la lista ocupe todo el ancho disponible */
+  display: flex;
+  justify-content: center;
 }
 
 .item {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Centra el contenido horizontalmente */
+  width: 100%;
 }
 
 .input {
-  width: 100%; /* Asegura que el campo de texto ocupe todo el ancho disponible del contenedor */
-  max-width: 500px; /* Limita el ancho máximo del campo de texto */
+  width: 100%;
+  max-width: 500px;
 }
 
 .button {
   margin-left: 2.1rem;
   padding: 10px 20px;
-  background-color: #f0f0f0; /* Soft grey background */
-  border: 1px solid #ccc; /* Light grey border */
-  border-radius: 5px; /* Rounded corners */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s;
 }
 
 .button:hover {
-  background-color: #e0e0e0; /* Slightly darker grey on hover */
-  border-color: #bbb; /* Slightly darker border on hover */
+  background-color: #e0e0e0;
+  border-color: #bbb;
 }
 
 .add-button {
   padding: 10px 20px;
-  background-color: #f0f0f0; /* Soft grey background */
-  border: 1px solid #ccc; /* Light grey border */
-  border-radius: 5px; /* Rounded corners */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s;
 }
 
 .add-button:hover {
-  background-color: #e0e0e0; /* Slightly darker grey on hover */
-  border-color: #bbb; /* Slightly darker border on hover */
+  background-color: #e0e0e0;
+  border-color: #bbb;
 }
 
 .form-container {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  align-items: stretch;
+  
 }
 
 .list-container {
-  flex: 1;
-  margin-right: 20px;
+  flex: 1; /* Toma el espacio disponible en el contenedor */
+  max-width: 50%; /* Limita el ancho máximo al 50% del contenedor principal */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra la lista y el botón horizontalmente */
+  align-items: center;
+}
+
+.list-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
 .ruleta-container {
-  flex: 1;
+  flex: 1; /* Toma el espacio disponible en el contenedor */
+  display: flex;
+  align-items: center;
 }
 
 .add-button-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px; /* Espacio opcional arriba del botón */
-  width: 100%; /* Asegura que el contenedor del botón ocupe todo el ancho disponible */
+  margin-top: 20px;
+  width: 100%;
 }

@@ -90,61 +90,64 @@ const Formulario = () => {
     };
 
     return (
-        <div className="form-container">
-            <div className="list-container">
-                <div className="title">
-                    <h1>Lista de Participantes</h1>
-                </div>
-                <ul className="items" style={{ listStyle: "none" }}>
-                    {inputData.map((x, index) => (
-                        <li key={x.id} className="list-item">
-                            <div className="item">
-                                <TextField
-                                    color="secondary"
-                                    variant="outlined"
-                                    value={x.text}
-                                    onChange={(e) => handleEditParticipant(e, index)}
-                                    InputProps={{
-                                        startAdornment: (
-                                            <InputAdornment position="start">
-                                                <img
-                                                    src={ratingIcons[x.rating]}
-                                                    alt="icon"
-                                                    style={{ width: 38, height: 38, marginRight: 8 }}
-                                                />
-                                            </InputAdornment>
-                                        ),
-                                        endAdornment: (
-                                            <InputAdornment position="end">
-                                                {inputData.length !== 1 &&
-                                                    <IconButton type="button" onClick={() => handleRemoveParticipant(index)} className="button">
-                                                        <BedtimeSharpIcon />
-                                                    </IconButton>}
-                                            </InputAdornment>
-                                        )
-                                    }}
-                                    className="input"
-                                />
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-                <div className="add-button-container">
-                    <button
-                        onClick={toggleForm}
-                        style={{ marginLeft: "2.1rem" }}
-                        className="add-button"
-                    >
-                        <BiPlus />
-                    </button>
-                </div>
-                {showForm && <FormularioParticipante onClose={toggleForm} onAddParticipant={handleAddParticipant} />}
+        <div className="page-container">
+            <div className="title-container">
+                <h1>La Pericleta</h1>
             </div>
-            <div className="ruleta-container">
-                <Ruleta data={inputData} onWinner={handleRemoveWinner} />
+            <div className="form-container">
+                <div className="list-container">
+                    <div className="list-content">
+                        <ul className="items">
+                            {inputData.map((x, index) => (
+                                <li key={x.id} className="list-item">
+                                    <div className="item">
+                                        <TextField
+                                            color="secondary"
+                                            variant="outlined"
+                                            value={x.text}
+                                            onChange={(e) => handleEditParticipant(e, index)}
+                                            InputProps={{
+                                                startAdornment: (
+                                                    <InputAdornment position="start">
+                                                        <img
+                                                            src={ratingIcons[x.rating]}
+                                                            alt="icon"
+                                                            style={{ width: 38, height: 38, marginRight: 8 }}
+                                                        />
+                                                    </InputAdornment>
+                                                ),
+                                                endAdornment: (
+                                                    <InputAdornment position="end">
+                                                        {inputData.length !== 1 &&
+                                                            <IconButton type="button" onClick={() => handleRemoveParticipant(index)} className="button">
+                                                                <BedtimeSharpIcon />
+                                                            </IconButton>}
+                                                    </InputAdornment>
+                                                )
+                                            }}
+                                            className="input"
+                                        />
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                        <div className="add-button-container">
+                            <button
+                                onClick={toggleForm}
+                                className="add-button"
+                            >
+                                <BiPlus />
+                            </button>
+                        </div>
+                        {showForm && <FormularioParticipante onClose={toggleForm} onAddParticipant={handleAddParticipant} />}
+                    </div>
+                </div>
+                <div className="ruleta-container">
+                    <Ruleta data={inputData} onWinner={handleRemoveWinner} />
+                </div>
             </div>
         </div>
-    );
+    );     
 };
 
 export default Formulario;
