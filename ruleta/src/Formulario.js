@@ -28,23 +28,19 @@ const ratingIcons = {
 
 const Formulario = () => {
     const [showForm, setShowForm] = useState(false);
+    
     const [inputData, setInputData] = useState([
         { id: uuidv4(), text: "Pericles", rating: 6 },
-        { id: uuidv4(), text: "Rego", rating: 6 },
+        { id: uuidv4(), text: "Rego", rating: 7 },
         { id: uuidv4(), text: "Guillén", rating: 7 },
         { id: uuidv4(), text: "Iván", rating: 4 },
         { id: uuidv4(), text: "Antonetti", rating: 5 },
-        { id: uuidv4(), text: "G0D of Warwick", rating: 1 }
+        { id: uuidv4(), text: "Barbara", rating: 1 },
+        { id: uuidv4(), text: "Toño", rating: 1 },
+        { id: uuidv4(), text: "Bisbi", rating: 1 }
     ]);
 
-    const [initialData, setInitialData] = useState([
-        { id: uuidv4(), text: "Pericles", rating: 6 },
-        { id: uuidv4(), text: "Rego", rating: 6 },
-        { id: uuidv4(), text: "Guillén", rating: 7 },
-        { id: uuidv4(), text: "Iván", rating: 4 },
-        { id: uuidv4(), text: "Antonetti", rating: 5 },
-        { id: uuidv4(), text: "G0D of Warwick", rating: 1 }
-    ]);
+    const [initialData, setInitialData] = useState([]);
 
     const handleEditParticipant = (e, index) => {
         const { value } = e.target;
@@ -61,6 +57,7 @@ const Formulario = () => {
 
     const handleAddParticipant = ({ name, rating }) => {
         setInputData([...inputData, { text: name, id: uuidv4(), rating }]);
+        setInitialData([...inputData, { text: name, id: uuidv4(), rating }]);
     };
 
     const handleRemoveWinner = (winnerText) => {
