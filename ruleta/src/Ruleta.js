@@ -66,7 +66,7 @@ const Ruleta = ({ data, onWinner, onResetParticipants }) => {
                 setShowAlert(false);
             }
         }
-    }, [winnersHistory, initialData, winnersRatingSum]);
+    }, [winnersHistory, initialData, winnersRatingSum, onResetParticipants]);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -102,6 +102,7 @@ const Ruleta = ({ data, onWinner, onResetParticipants }) => {
         });
 
         setWinner(currentWinner);
+
         onWinner(currentWinner);
     };
 
@@ -119,7 +120,7 @@ const Ruleta = ({ data, onWinner, onResetParticipants }) => {
                 )}
                 <Wheel
                     mustStartSpinning={mustSpin}
-                    spinDuration={[0.2]}
+                    spinDuration={[0.3]}
                     prizeNumber={prizeNumber}
                     data={rouletteData}
                     outerBorderColor={["#ccc"]}

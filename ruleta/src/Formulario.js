@@ -35,9 +35,7 @@ const Formulario = () => {
         { id: uuidv4(), text: "Guillén", rating: 7 },
         { id: uuidv4(), text: "Iván", rating: 4 },
         { id: uuidv4(), text: "Antonetti", rating: 5 },
-        { id: uuidv4(), text: "Barbara", rating: 1 },
-        { id: uuidv4(), text: "Toño", rating: 1 },
-        { id: uuidv4(), text: "Bisbi", rating: 1 }]);
+    ]);
 
     const [initialData, setInitialData] = useState(inputData);
 
