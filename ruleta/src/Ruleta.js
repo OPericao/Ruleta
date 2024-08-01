@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Wheel } from "react-custom-roulette";
-
 import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
-
+import Alert from '@mui/material/Alert';
 import './Ruleta.css';
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -16,12 +15,18 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const Ruleta = ({ data, onWinner }) => {
+const Ruleta = ({ data, onWinner, onResetParticipants }) => {
     const [mustSpin, setMustSpin] = useState(false);
     const [prizeNumber, setPrizeNumber] = useState(0);
     const [winner, setWinner] = useState(null);
-    const [winnersHistory, setWinnersHistory] = useState(Array(5).fill(null)); // Inicialmente lleno de null
+    const [winnersHistory, setWinnersHistory] = useState(Array(5).fill(null));
+    const [initialData, setInitialData] = useState(data);
     const [rouletteData, setRouletteData] = useState(data);
+    const [winnersRatingSum, setWinnersRatingSum] = useState(0);
+    const [participantsRatingSum, setParticipantsRatingSum] = useState(0);
+    const [balanceMessage, setBalanceMessage] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
+    const alertRef = useRef(null);
 
     const handleSpinClick = () => {
         const newPrizeNumber = Math.floor(Math.random() * data.length);
@@ -30,47 +35,88 @@ const Ruleta = ({ data, onWinner }) => {
     };
 
     useEffect(() => {
+        setInitialData(data);
+
         const addShortString = data.map((item) => {
-          return {
-            completeOption: item.text,
-            option:
-              item.text.length >= 30
-                ? item.text.substring(0, 30).trimEnd() + "..."
-                : item.text
-          };
+            return {
+                completeOption: item.text,
+                option:
+                    item.text.length >= 30
+                        ? item.text.substring(0, 30).trimEnd() + "..."
+                        : item.text
+            };
         });
         setRouletteData(addShortString);
-      }, [data]);
+    }, [data]);
+
+    useEffect(() => {
+        const remainingParticipants = initialData.filter(p => !winnersHistory.map(w => w?.name).includes(p.text));
+        const totalRemainingRating = remainingParticipants.reduce((sum, participant) => sum + participant.rating, 0);
+        setParticipantsRatingSum(totalRemainingRating);
+
+        if (winnersHistory.every(winner => winner !== null)) {
+            const difference = Math.abs(winnersRatingSum - totalRemainingRating);
+            if (difference > 4) {
+                setBalanceMessage("Los equipos están desbalanceados.");
+                setShowAlert(true);
+                onResetParticipants(); // Notificar al formulario que debe restaurar la lista
+                setWinnersHistory(Array(5).fill(null));
+            } else {
+                setBalanceMessage("");
+                setShowAlert(false);
+            }
+        }
+    }, [winnersHistory, initialData, winnersRatingSum]);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (alertRef.current && !alertRef.current.contains(event.target)) {
+                setShowAlert(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
 
     const handleStopSpinning = () => {
         setMustSpin(false);
         const currentWinner = data[prizeNumber].text;
+        const currentRating = data[prizeNumber].rating;
 
-        // Encuentra el primer índice disponible (null) en el historial de ganadores
         setWinnersHistory(prevHistory => {
             const newHistory = [...prevHistory];
             const firstNullIndex = newHistory.indexOf(null);
             
             if (firstNullIndex !== -1) {
-                newHistory[firstNullIndex] = currentWinner;
+                newHistory[firstNullIndex] = { name: currentWinner, rating: currentRating };
             } else {
-                // Si no hay espacios disponibles, desplaza la lista y agrega el nuevo ganador al final
                 newHistory.shift();
-                newHistory.push(currentWinner);
+                newHistory.push({ name: currentWinner, rating: currentRating });
             }
+
+            const totalWinnersRating = newHistory.reduce((sum, winner) => sum + (winner ? winner.rating : 0), 0);
+            setWinnersRatingSum(totalWinnersRating);
 
             return newHistory;
         });
 
         setWinner(currentWinner);
-        
-        // Llama a la función onWinner pasada como prop
         onWinner(currentWinner);
     };
 
     return (
         <>
-            <div align="center" className="roulette-container">
+            <div align="center" className="ruleta-container">
+                {showAlert && balanceMessage && (
+                    <div className="alert-container">
+                        <div className="alert-message" ref={alertRef}>
+                            <Alert variant="outlined" severity="error">
+                                {balanceMessage}
+                            </Alert>
+                        </div>
+                    </div>
+                )}
                 <Wheel
                     mustStartSpinning={mustSpin}
                     spinDuration={[0.2]}
@@ -102,18 +148,18 @@ const Ruleta = ({ data, onWinner }) => {
                     Girar
                 </button>}
                 <div className="stack-container">
-                  <Stack
-                      direction="row"
-                      divider={<Divider orientation="vertical" flexItem />}
-                      spacing={2}
-                      sx={{ mt: 2 }} // Espacio arriba del Stack
-                  >
-                      {winnersHistory.map((winner, index) => (
-                          <Item key={index}>
-                              {winner ? winner : <span style={{ color: 'gray' }}>-</span>}
-                          </Item>
-                      ))}
-                  </Stack>
+                    <Stack
+                        direction="row"
+                        divider={<Divider orientation="vertical" flexItem />}
+                        spacing={2}
+                        sx={{ mt: 2 }}
+                    >
+                        {winnersHistory.map((winner, index) => (
+                            <Item key={index}>
+                                {winner ? winner.name : <span style={{ color: 'gray' }}>-</span>}
+                            </Item>
+                        ))}
+                    </Stack>
                 </div>
                 {winner && (
                     <div className="winner-message">

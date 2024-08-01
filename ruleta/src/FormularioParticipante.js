@@ -22,9 +22,9 @@ const FormularioParticipante = ({ onClose, onAddParticipant }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onAddParticipant({ name, rating }); 
-        setName('');
-        setRating(1);
+        onAddParticipant({ name, rating }); // Añade un nuevo participante
+        setName('');  // Restablece el nombre a casilla vacía
+        setRating(1); // Restablece la puntuación a 1 (elo)
         onClose();
     };
 
@@ -32,7 +32,7 @@ const FormularioParticipante = ({ onClose, onAddParticipant }) => {
         '& .MuiRating-icon': {
             color: theme.palette.action.disabled,
         },
-        '& .MuiRating-iconFilled': {
+        '& .MuiRating-iconFilled': { // Estilado para el icono seleccionado
             color: '#000', // Color negro para el icono seleccionado
             borderRadius: '50%', // Bordes redondeados
             border: '2px solid rgba(0, 0, 0, 0.5)', // Borde un poco más oscuro
@@ -44,33 +44,26 @@ const FormularioParticipante = ({ onClose, onAddParticipant }) => {
 
     const customIcons = {
         1: {
-          icon: <img src={ironIcon} alt="hierro" style={{width:'43px', height:'43px'}}/>,
-          label: 'Very Dissatisfied',
+          icon: <img src={ironIcon} alt="hierro" style={{width:'43px', height:'43px'}}/>
         },
         2: {
-            icon: <img src={bronzeIcon} alt="bronce" style={{width:'43px', height:'43px'}}/>,
-            label: 'Very Dissatisfied',
+            icon: <img src={bronzeIcon} alt="bronce" style={{width:'43px', height:'43px'}}/>
           },
         3: {
-          icon: <img src={silverIcon} alt="plata" style={{width:'43px', height:'43px'}}/>,
-          label: 'Dissatisfied',
+          icon: <img src={silverIcon} alt="plata" style={{width:'43px', height:'43px'}}/>
         },
         4: {
-          icon: <img src={goldIcon} alt="oro" style={{width:'43px', height:'43px'}}/>,
-          label: 'Neutral',
+          icon: <img src={goldIcon} alt="oro" style={{width:'43px', height:'43px'}}/>
         },
         5: {
-          icon: <img src={platinumIcon} alt="platino" style={{width:'43px', height:'43px'}}/>,
-          label: 'Satisfied',
+          icon: <img src={platinumIcon} alt="platino" style={{width:'43px', height:'43px'}}/>
         },
         6: {
-          icon: <img src={emeraldIcon} alt="esmeralda" style={{width:'43px', height:'43px'}}/>,
-          label: 'Very Satisfied',
+          icon: <img src={emeraldIcon} alt="esmeralda" style={{width:'43px', height:'43px'}}/>
         },
         7: {
-            icon: <img src={diamondIcon} alt="diamante" style={{width:'43px', height:'43px'}}/>,
-            label: 'Very Satisfied',
-          },
+            icon: <img src={diamondIcon} alt="diamante" style={{width:'43px', height:'43px'}}/>
+        }
       };
 
     function IconContainer(props) {
@@ -87,7 +80,7 @@ const FormularioParticipante = ({ onClose, onAddParticipant }) => {
             <div className="modal-content">
                 <h2>Formulario Adicional</h2>
                 <form onSubmit={handleSubmit}>
-                    <TextField
+                    <TextField    // Cuadro de texto en el que se introduce el nombre
                         label="Nombre"
                         variant="outlined"
                         fullWidth
@@ -95,7 +88,7 @@ const FormularioParticipante = ({ onClose, onAddParticipant }) => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
-                    <StyledRating
+                    <StyledRating   // Lista de iconos para valorar
                         name="highlight-selected-only"
                         value={rating}
                         max={7}

@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { BiPlus } from "react-icons/bi";
 import { v4 as uuidv4 } from "uuid";
-
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import BedtimeSharpIcon from '@mui/icons-material/BedtimeSharp';
 import InputAdornment from '@mui/material/InputAdornment';
-
 import Ruleta from "./Ruleta";
 import FormularioParticipante from "./FormularioParticipante";
 import "./Formulario.css";
@@ -30,38 +28,22 @@ const ratingIcons = {
 
 const Formulario = () => {
     const [showForm, setShowForm] = useState(false);
-
     const [inputData, setInputData] = useState([
-        {
-            id: uuidv4(),
-            text: "Pericles",
-            rating: 6
-        },
-        {
-            id: uuidv4(),
-            text: "Rego",
-            rating: 6
-        },
-        {
-            id: uuidv4(),
-            text: "Guillén",
-            rating: 7
-        },
-        {
-            id: uuidv4(),
-            text: "Iván",
-            rating: 4
-        },
-        {
-            id: uuidv4(),
-            text: "Antonetti",
-            rating: 5
-        },
-        {
-            id: uuidv4(),
-            text: "G0D of Warwick",
-            rating: 1
-        }
+        { id: uuidv4(), text: "Pericles", rating: 6 },
+        { id: uuidv4(), text: "Rego", rating: 6 },
+        { id: uuidv4(), text: "Guillén", rating: 7 },
+        { id: uuidv4(), text: "Iván", rating: 4 },
+        { id: uuidv4(), text: "Antonetti", rating: 5 },
+        { id: uuidv4(), text: "G0D of Warwick", rating: 1 }
+    ]);
+
+    const [initialData, setInitialData] = useState([
+        { id: uuidv4(), text: "Pericles", rating: 6 },
+        { id: uuidv4(), text: "Rego", rating: 6 },
+        { id: uuidv4(), text: "Guillén", rating: 7 },
+        { id: uuidv4(), text: "Iván", rating: 4 },
+        { id: uuidv4(), text: "Antonetti", rating: 5 },
+        { id: uuidv4(), text: "G0D of Warwick", rating: 1 }
     ]);
 
     const handleEditParticipant = (e, index) => {
@@ -87,6 +69,14 @@ const Formulario = () => {
 
     const toggleForm = () => {
         setShowForm(!showForm);
+    };
+
+    const calculateTotalRating = () => {
+        return inputData.reduce((sum, participant) => sum + participant.rating, 0);
+    };
+
+    const resetParticipants = () => {
+        setInputData(initialData); // Restaurar la lista de participantes al estado inicial
     };
 
     return (
@@ -143,11 +133,11 @@ const Formulario = () => {
                     </div>
                 </div>
                 <div className="ruleta-container">
-                    <Ruleta data={inputData} onWinner={handleRemoveWinner} />
+                    <Ruleta data={inputData} onWinner={handleRemoveWinner} totalRating={calculateTotalRating()} onResetParticipants={resetParticipants} />
                 </div>
             </div>
         </div>
-    );     
+    );
 };
 
 export default Formulario;
