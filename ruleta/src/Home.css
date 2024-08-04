@@ -1,0 +1,76 @@
+/* Home.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 50px;
+}
+
+.home-header {
+    flex: 0 1 auto;
+    text-align: center;
+    font-size: 30px;
+}
+
+.home-buttons {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.home-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    margin: 60px;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+    padding: 20px; /* Añadido para que el contenido no quede pegado a los bordes */
+}
+
+.home-button-background {
+    flex: 1; /* Toma el espacio disponible en el botón */
+    width: 100%; /* Asegura que el fondo cubra todo el ancho del botón */
+    background-size: cover;
+    background-position: center;
+}
+
+.home-button-1 .home-button-background {
+    background-image: url('./assets/homeIcons/ruleta.png'); /* URL de la imagen de fondo para el primer botón */
+    background-size: cover; /* La imagen cubrirá todo el área del fondo */
+}
+
+.home-button-2 .home-button-background {
+    background-image: url('./assets/homeIcons/dados.png'); /* URL de la imagen de fondo para el segundo botón */
+    background-size: contain; /* Ajusta la imagen para que quepa completamente dentro del fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita si es más pequeña que el contenedor */
+}
+
+.home-button-text {
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    padding: 10px 0; /* Espaciado alrededor del texto */
+    position: relative;
+    z-index: 1; /* Asegura que el texto esté por encima del fondo */
+}
