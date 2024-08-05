@@ -16,6 +16,8 @@ import platinumIcon from "./assets/platinumIcon.png";
 import emeraldIcon from "./assets/emeraldIcon.png";
 import diamondIcon from "./assets/diamondIcon.png";
 
+import { Link } from 'react-router-dom';
+
 const ratingIcons = {
     1: ironIcon,
     2: bronzeIcon,
@@ -74,6 +76,11 @@ const Formulario = () => {
 
     return (
         <div className="page-container">
+            <div className="Dado1-container">
+            <Link to="/" className="back-button-link">
+                <button className="back-button">Pagina Principal</button>
+            </Link>
+            </div>
             <div className="title-container">
                 <h1>La Pericleta</h1>
             </div>
