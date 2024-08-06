@@ -32,11 +32,11 @@ const Formulario = () => {
     const [showForm, setShowForm] = useState(false);
     
     const [inputData, setInputData] = useState([
-        { id: uuidv4(), text: "Pericles", rating: 7 },
+        { id: uuidv4(), text: "Pericles", rating: 6 },
         { id: uuidv4(), text: "Rego", rating: 7 },
         { id: uuidv4(), text: "Guillén", rating: 7 },
-        { id: uuidv4(), text: "Iván", rating: 7 },
-        { id: uuidv4(), text: "Antonetti", rating: 7 },
+        { id: uuidv4(), text: "Iván", rating: 3 },
+        { id: uuidv4(), text: "Antonetti", rating: 5 },
     ]);
 
     const [initialData, setInitialData] = useState(inputData);
@@ -46,16 +46,19 @@ const Formulario = () => {
         const list = [...inputData];
         list[index].text = value;
         setInputData(list);
+        setInitialData(list);
     };
 
     const handleRemoveParticipant = (index) => {
         const list = [...inputData];
         list.splice(index, 1);
         setInputData(list);
+        setInitialData(list);
     };
 
     const handleAddParticipant = ({ name, rating }) => {
         setInputData([...inputData, { text: name, id: uuidv4(), rating }]);
+        setInitialData([...initialData, { text: name, id: uuidv4(), rating }]);
     };
 
     const handleRemoveWinner = (winnerText) => {

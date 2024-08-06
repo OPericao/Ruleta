@@ -44,25 +44,25 @@ const FormularioParticipante = ({ onClose, onAddParticipant }) => {
 
     const customIcons = {
         1: {
-          icon: <img src={ironIcon} alt="hierro" style={{width:'43px', height:'43px'}}/>
+          icon: <img src={ironIcon} alt="hierro" style={{width:'37px', height:'37px'}}/>
         },
         2: {
-            icon: <img src={bronzeIcon} alt="bronce" style={{width:'43px', height:'43px'}}/>
+            icon: <img src={bronzeIcon} alt="bronce" style={{width:'37px', height:'37px'}}/>
           },
         3: {
-          icon: <img src={silverIcon} alt="plata" style={{width:'43px', height:'43px'}}/>
+          icon: <img src={silverIcon} alt="plata" style={{width:'37px', height:'37px'}}/>
         },
         4: {
-          icon: <img src={goldIcon} alt="oro" style={{width:'43px', height:'43px'}}/>
+          icon: <img src={goldIcon} alt="oro" style={{width:'37px', height:'37px'}}/>
         },
         5: {
-          icon: <img src={platinumIcon} alt="platino" style={{width:'43px', height:'43px'}}/>
+          icon: <img src={platinumIcon} alt="platino" style={{width:'37px', height:'37px'}}/>
         },
         6: {
-          icon: <img src={emeraldIcon} alt="esmeralda" style={{width:'43px', height:'43px'}}/>
+          icon: <img src={emeraldIcon} alt="esmeralda" style={{width:'37px', height:'37px'}}/>
         },
         7: {
-            icon: <img src={diamondIcon} alt="diamante" style={{width:'43px', height:'43px'}}/>
+            icon: <img src={diamondIcon} alt="diamante" style={{width:'37px', height:'37px'}}/>
         }
       };
 
