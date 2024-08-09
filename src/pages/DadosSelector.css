@@ -61,11 +61,11 @@ html, body {
 }
 
 .Dado-button-1 .Dado-button-background {
-    background-image: url('./assets/dadosIcons/dado1.png'); /* URL de la imagen de fondo para el primer botón */
+    background-image: url('../assets/dadosIcons/dado1.png'); /* URL de la imagen de fondo para el primer botón */
 }
 
 .Dado-button-2 .Dado-button-background {
-    background-image: url('./assets/dadosIcons/dado2.png'); /* URL de la imagen de fondo para el segundo botón */
+    background-image: url('../assets/dadosIcons/dado2.png'); /* URL de la imagen de fondo para el segundo botón */
 }
 
 .Dado-button-text {

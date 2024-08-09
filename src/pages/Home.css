@@ -56,12 +56,12 @@ html, body {
 }
 
 .home-button-1 .home-button-background {
-    background-image: url('./assets/homeIcons/ruleta.png'); /* URL de la imagen de fondo para el primer botón */
+    background-image: url('../assets/homeIcons/ruleta.png'); /* URL de la imagen de fondo para el primer botón */
     background-size: cover; /* La imagen cubrirá todo el área del fondo */
 }
 
 .home-button-2 .home-button-background {
-    background-image: url('./assets/homeIcons/dados.png'); /* URL de la imagen de fondo para el segundo botón */
+    background-image: url('../assets/homeIcons/dados.png'); /* URL de la imagen de fondo para el segundo botón */
     background-size: contain; /* Ajusta la imagen para que quepa completamente dentro del fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita si es más pequeña que el contenedor */
 }

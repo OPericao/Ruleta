@@ -5,16 +5,16 @@ import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import BedtimeSharpIcon from '@mui/icons-material/BedtimeSharp';
 import InputAdornment from '@mui/material/InputAdornment';
-import Ruleta from "./Ruleta";
-import FormularioParticipante from "./FormularioParticipante";
+import Ruleta from "../components/ruleta/Ruleta";
+import FormularioParticipante from "../components/ruleta/FormularioParticipante";
 import "./Formulario.css";
-import ironIcon from "./assets/ironIcon.png";
-import bronzeIcon from "./assets/bronzeIcon.png";
-import silverIcon from "./assets/silverIcon.png";
-import goldIcon from "./assets/goldIcon.png";
-import platinumIcon from "./assets/platinumIcon.png";
-import emeraldIcon from "./assets/emeraldIcon.png";
-import diamondIcon from "./assets/diamondIcon.png";
+import ironIcon from "../assets/ironIcon.png";
+import bronzeIcon from "../assets/bronzeIcon.png";
+import silverIcon from "../assets/silverIcon.png";
+import goldIcon from "../assets/goldIcon.png";
+import platinumIcon from "../assets/platinumIcon.png";
+import emeraldIcon from "../assets/emeraldIcon.png";
+import diamondIcon from "../assets/diamondIcon.png";
 
 import { Link } from 'react-router-dom';
 
