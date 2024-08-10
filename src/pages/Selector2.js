@@ -4,6 +4,13 @@ import './Selector2.css';
 import { addDiceRollEvent } from '../components/dado/RandomDice.js';
 import ParticipantForm from '../components/ParticipantForm.js';
 
+import topIcon from '../assets/rolIconsLoL/top.png';
+import jungleIcon from '../assets/rolIconsLoL/jungle.png';
+import midIcon from '../assets/rolIconsLoL/mid.png';
+import adcIcon from '../assets/rolIconsLoL/adc.png';
+import supportIcon from '../assets/rolIconsLoL/support.png';
+
+
 const Selector2 = () => {
     const [participants, setParticipants] = useState([
         { id: "1", text: "Pericles", rating: 6 },
@@ -66,12 +73,24 @@ const Selector2 = () => {
                         <div className="face left"></div>
                     </div>
                     <div className="dice3">
-                        <div className="face front"></div>
-                        <div className="face back"></div>
-                        <div className="face top"></div>
-                        <div className="face bottom"></div>
-                        <div className="face right"></div>
-                        <div className="face left"></div>
+                        <div className="face front">
+                            <img src={topIcon} alt="Top" />
+                        </div>
+                        <div className="face back">
+                            <img src={jungleIcon} alt="Jungle" />
+                        </div>
+                        <div className="face right">
+                            <img src={midIcon} alt="Mid" />
+                        </div>
+                        <div className="face left">
+                            <img src={adcIcon} alt="ADC" />
+                        </div>
+                        <div className="face top">
+                            <img src={supportIcon} alt="Support" />
+                        </div>
+                        <div className="face bottom">
+                            {/* Puedes dejar la cara en blanco */}
+                        </div>
                     </div>
                 </div>
                 <button className="roll">Tirar los dados</button>

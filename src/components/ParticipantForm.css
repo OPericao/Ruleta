@@ -65,3 +65,15 @@
   align-items: center;
   padding: 20px;
 }
+
+.limit-message {
+  color: #b33951; /* Rojo suave, cambia según tus preferencias */
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin-top: 20px;
+  width: 100%;
+}
+

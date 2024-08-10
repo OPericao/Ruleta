@@ -46,6 +46,24 @@
     );
 }
 
+.dice3 .face {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eeeeee;
+}
+
+.dice3 .face img {
+    max-width: 70px;
+    max-height: 70px;
+}
+
+.dice3 .face::before, .dice3 .face::after {
+    display: none; /* Elimina puntos y sombras del dado 3 */
+}
+
+
+
 .face::before {
     position: absolute;
     content: '';

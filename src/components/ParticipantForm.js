@@ -1,4 +1,3 @@
-// ParticipantForm.js
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import TextField from '@mui/material/TextField';
@@ -46,6 +45,10 @@ const ParticipantForm = ({ initialParticipants, onUpdateParticipants }) => {
     };
 
     const handleAddParticipant = ({ name, rating }) => {
+        if (inputData.length >= 10) {
+            return; // No permitir más de 10 participantes
+        }
+
         const newParticipant = { text: name, id: uuidv4(), rating };
         const newData = [...inputData, newParticipant];
         setInputData(newData);
@@ -93,11 +96,17 @@ const ParticipantForm = ({ initialParticipants, onUpdateParticipants }) => {
                 ))}
             </ul>
             <div className="add-button-container">
-                <button onClick={toggleForm} className="add-button">
-                    <BiPlus />
-                </button>
+                {inputData.length < 10 ? (
+                    <button onClick={toggleForm} className="add-button">
+                        <BiPlus />
+                    </button>
+                ) : (
+                    <div className="limit-message">Número máximo de jugadores alcanzado</div>
+                )}
             </div>
-            {showForm && <FormularioParticipante onClose={toggleForm} onAddParticipant={handleAddParticipant} />}
+            {showForm && inputData.length < 10 && (
+                <FormularioParticipante onClose={toggleForm} onAddParticipant={handleAddParticipant} />
+            )}
         </div>
     );
 };
