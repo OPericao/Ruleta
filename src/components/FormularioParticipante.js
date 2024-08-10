@@ -6,15 +6,15 @@ import TextField from '@mui/material/TextField';
 import Rating from '@mui/material/Rating';
 import { styled } from '@mui/material/styles';
 
-import ironIcon from "../../assets/ironIcon.png";
-import bronzeIcon from "../../assets/bronzeIcon.png";
-import silverIcon from "../../assets/silverIcon.png";
-import goldIcon from "../../assets/goldIcon.png";
-import platinumIcon from "../../assets/platinumIcon.png";
-import emeraldIcon from "../../assets/emeraldIcon.png";
-import diamondIcon from "../../assets/diamondIcon.png";
+import ironIcon from "../assets/ironIcon.png";
+import bronzeIcon from "../assets/bronzeIcon.png";
+import silverIcon from "../assets/silverIcon.png";
+import goldIcon from "../assets/goldIcon.png";
+import platinumIcon from "../assets/platinumIcon.png";
+import emeraldIcon from "../assets/emeraldIcon.png";
+import diamondIcon from "../assets/diamondIcon.png";
 
-import './FormularioParticipante.css';
+import './FormularioParicipante.css'
 
 const FormularioParticipante = ({ onClose, onAddParticipant }) => {
     const [name, setName] = useState('');

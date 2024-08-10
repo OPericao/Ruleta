@@ -1,0 +1,67 @@
+/* ParticipantForm.css */
+
+.items {
+  width: 100%;
+  max-width: 100%; /* Ajusta para usar el espacio disponible */
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+  
+.list-item {
+  display: flex;
+  justify-content: center;
+}
+
+.item {
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  max-width: 500px;
+}
+
+.button {
+  margin-left: 2.1rem;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.button:hover {
+  background-color: #e0e0e0;
+  border-color: #bbb;
+}
+
+.add-button {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: #e0e0e0;
+  border-color: #bbb;
+}
+
+.add-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.participant-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}

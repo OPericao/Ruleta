@@ -149,3 +149,23 @@
     color: #fff;
     background: #b33951;
 }
+
+.Title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    position: relative; /* Asegura que 'top' funcione */
+    top: 40px; /* Desplaza el contenedor hacia abajo */
+    left: 400px;
+    width: 100%;
+}
+
+.ParticipantForm-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    position: relative; /* Asegura que 'top' funcione */
+    top: 70px; /* Desplaza el contenedor hacia abajo */
+    left: 40px;
+    width: 100%;
+}

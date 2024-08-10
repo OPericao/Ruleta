@@ -1,142 +1,45 @@
+// Formulario.js
 import React, { useState } from "react";
-import { BiPlus } from "react-icons/bi";
-import { v4 as uuidv4 } from "uuid";
-import TextField from '@mui/material/TextField';
-import IconButton from '@mui/material/IconButton';
-import BedtimeSharpIcon from '@mui/icons-material/BedtimeSharp';
-import InputAdornment from '@mui/material/InputAdornment';
-import Ruleta from "../components/ruleta/Ruleta";
-import FormularioParticipante from "../components/ruleta/FormularioParticipante";
-import "./Formulario.css";
-import ironIcon from "../assets/ironIcon.png";
-import bronzeIcon from "../assets/bronzeIcon.png";
-import silverIcon from "../assets/silverIcon.png";
-import goldIcon from "../assets/goldIcon.png";
-import platinumIcon from "../assets/platinumIcon.png";
-import emeraldIcon from "../assets/emeraldIcon.png";
-import diamondIcon from "../assets/diamondIcon.png";
-
 import { Link } from 'react-router-dom';
-
-const ratingIcons = {
-    1: ironIcon,
-    2: bronzeIcon,
-    3: silverIcon,
-    4: goldIcon,
-    5: platinumIcon,
-    6: emeraldIcon,
-    7: diamondIcon,
-};
+import ParticipantForm from "../components/ParticipantForm";
+import Ruleta from "../components/ruleta/Ruleta";
+import "./Formulario.css";
 
 const Formulario = () => {
-    const [showForm, setShowForm] = useState(false);
-    
-    const [inputData, setInputData] = useState([
-        { id: uuidv4(), text: "Pericles", rating: 6 },
-        { id: uuidv4(), text: "Rego", rating: 7 },
-        { id: uuidv4(), text: "Guillén", rating: 7 },
-        { id: uuidv4(), text: "Iván", rating: 3 },
-        { id: uuidv4(), text: "Antonetti", rating: 5 },
+    const [participants, setParticipants] = useState([
+        { id: "1", text: "Pericles", rating: 6 },
+        { id: "2", text: "Rego", rating: 7 },
+        { id: "3", text: "Guillén", rating: 7 },
+        { id: "4", text: "Iván", rating: 3 },
+        { id: "5", text: "Antonetti", rating: 5 },
     ]);
 
-    const [initialData, setInitialData] = useState(inputData);
-
-    const handleEditParticipant = (e, index) => {
-        const { value } = e.target;
-        const list = [...inputData];
-        list[index].text = value;
-        setInputData(list);
-        setInitialData(list);
-    };
-
-    const handleRemoveParticipant = (index) => {
-        const list = [...inputData];
-        list.splice(index, 1);
-        setInputData(list);
-        setInitialData(list);
-    };
-
-    const handleAddParticipant = ({ name, rating }) => {
-        setInputData([...inputData, { text: name, id: uuidv4(), rating }]);
-        setInitialData([...initialData, { text: name, id: uuidv4(), rating }]);
-    };
-
-    const handleRemoveWinner = (winnerText) => {
-        setInputData(inputData.filter(participant => participant.text !== winnerText));
-    };
-
-    const toggleForm = () => {
-        setShowForm(!showForm);
+    const handleUpdateParticipants = (updatedParticipants) => {
+        setParticipants(updatedParticipants);
     };
 
     const calculateTotalRating = () => {
-        return inputData.reduce((sum, participant) => sum + participant.rating, 0);
+        return participants.reduce((sum, participant) => sum + participant.rating, 0);
     };
 
-    const resetParticipants = () => {
-        setInputData(initialData); // Restaurar la lista de participantes al estado inicial
+    const handleRemoveWinner = (winnerText) => {
+        setParticipants(participants.filter(participant => participant.text !== winnerText));
     };
 
     return (
         <div className="page-container">
             <div className="Dado1-container">
-            <Link to="/" className="back-button-link">
-                <button className="back-button">Pagina Principal</button>
-            </Link>
+                <Link to="/" className="back-button-link">
+                    <button className="back-button">Pagina Principal</button>
+                </Link>
             </div>
             <div className="title-container">
                 <h1>La Pericleta</h1>
             </div>
             <div className="form-container">
-                <div className="list-container">
-                    <div className="list-content">
-                        <ul className="items">
-                            {inputData.map((x, index) => (
-                                <li key={x.id} className="list-item">
-                                    <div className="item">
-                                        <TextField
-                                            color="secondary"
-                                            variant="outlined"
-                                            value={x.text}
-                                            onChange={(e) => handleEditParticipant(e, index)}
-                                            InputProps={{
-                                                startAdornment: (
-                                                    <InputAdornment position="start">
-                                                        <img
-                                                            src={ratingIcons[x.rating]}
-                                                            alt="icon"
-                                                            style={{ width: 38, height: 38, marginRight: 8 }}
-                                                        />
-                                                    </InputAdornment>
-                                                ),
-                                                endAdornment: (
-                                                    <InputAdornment position="end">
-                                                        {inputData.length !== 1 &&
-                                                            <IconButton type="button" onClick={() => handleRemoveParticipant(index)} className="button">
-                                                                <BedtimeSharpIcon />
-                                                            </IconButton>}
-                                                    </InputAdornment>
-                                                )
-                                            }}
-                                            className="input"
-                                        />
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                        <div className="add-button-container">
-                            <button
-                                onClick={toggleForm}
-                                className="add-button"
-                            >
-                                <BiPlus />
-                            </button>
-                        </div>
-                        {showForm && <FormularioParticipante onClose={toggleForm} onAddParticipant={handleAddParticipant} />}
-                    </div>
-                </div>
+                <ParticipantForm initialParticipants={participants} onUpdateParticipants={handleUpdateParticipants} />
                 <div className="ruleta-container">
-                    <Ruleta data={inputData} onWinner={handleRemoveWinner} totalRating={calculateTotalRating()} onResetParticipants={resetParticipants} />
+                    <Ruleta data={participants} onWinner={handleRemoveWinner} totalRating={calculateTotalRating()} />
                 </div>
             </div>
         </div>
