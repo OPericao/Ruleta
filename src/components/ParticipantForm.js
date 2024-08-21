@@ -27,31 +27,30 @@ const ratingIcons = {
 
 const ParticipantForm = ({ initialParticipants, onUpdateParticipants }) => {
     const [showForm, setShowForm] = useState(false);
-    const [inputData, setInputData] = useState(initialParticipants);
 
     const handleEditParticipant = (e, index) => {
         const { value } = e.target;
-        const list = [...inputData];
+        const list = [...initialParticipants];
         list[index].text = value;
-        setInputData(list);
+
         onUpdateParticipants(list);
     };
 
     const handleRemoveParticipant = (index) => {
-        const list = [...inputData];
+        const list = [...initialParticipants];
         list.splice(index, 1);
-        setInputData(list);
+
         onUpdateParticipants(list);
     };
 
     const handleAddParticipant = ({ name, rating }) => {
-        if (inputData.length >= 10) {
+        if (initialParticipants.length >= 10) {
             return; // No permitir más de 10 participantes
         }
 
         const newParticipant = { text: name, id: uuidv4(), rating };
-        const newData = [...inputData, newParticipant];
-        setInputData(newData);
+        const newData = [...initialParticipants, newParticipant];
+
         onUpdateParticipants(newData);
     };
 
@@ -62,7 +61,7 @@ const ParticipantForm = ({ initialParticipants, onUpdateParticipants }) => {
     return (
         <div className="participant-form-container">
             <ul className="items">
-                {inputData.map((x, index) => (
+                {initialParticipants.map((x, index) => (
                     <li key={x.id} className="list-item">
                         <div className="item">
                             <TextField
@@ -82,7 +81,7 @@ const ParticipantForm = ({ initialParticipants, onUpdateParticipants }) => {
                                     ),
                                     endAdornment: (
                                         <InputAdornment position="end">
-                                            {inputData.length !== 1 &&
+                                            {initialParticipants.length !== 1 &&
                                                 <IconButton type="button" onClick={() => handleRemoveParticipant(index)} className="button">
                                                     <BedtimeSharpIcon />
                                                 </IconButton>}
@@ -96,7 +95,7 @@ const ParticipantForm = ({ initialParticipants, onUpdateParticipants }) => {
                 ))}
             </ul>
             <div className="add-button-container">
-                {inputData.length < 10 ? (
+                {initialParticipants.length < 10 ? (
                     <button onClick={toggleForm} className="add-button">
                         <BiPlus />
                     </button>
@@ -104,7 +103,7 @@ const ParticipantForm = ({ initialParticipants, onUpdateParticipants }) => {
                     <div className="limit-message">Número máximo de jugadores alcanzado</div>
                 )}
             </div>
-            {showForm && inputData.length < 10 && (
+            {showForm && initialParticipants.length < 10 && (
                 <FormularioParticipante onClose={toggleForm} onAddParticipant={handleAddParticipant} />
             )}
         </div>

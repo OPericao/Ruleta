@@ -14,8 +14,11 @@ const Formulario = () => {
         { id: "5", text: "Antonetti", rating: 5 },
     ]);
 
+    const [initialData, setInitialData] = useState(participants);
+
     const handleUpdateParticipants = (updatedParticipants) => {
         setParticipants(updatedParticipants);
+        setInitialData(updatedParticipants);
     };
 
     const calculateTotalRating = () => {
@@ -24,6 +27,10 @@ const Formulario = () => {
 
     const handleRemoveWinner = (winnerText) => {
         setParticipants(participants.filter(participant => participant.text !== winnerText));
+    };
+
+    const resetParticipants = () => {
+        setParticipants(initialData); // Restaurar la lista de participantes al estado inicial
     };
 
     return (
@@ -39,7 +46,7 @@ const Formulario = () => {
             <div className="form-container">
                 <ParticipantForm initialParticipants={participants} onUpdateParticipants={handleUpdateParticipants} />
                 <div className="ruleta-container">
-                    <Ruleta data={participants} onWinner={handleRemoveWinner} totalRating={calculateTotalRating()} />
+                    <Ruleta data={participants} onWinner={handleRemoveWinner} totalRating={calculateTotalRating()} onResetParticipants={resetParticipants} />
                 </div>
             </div>
         </div>
