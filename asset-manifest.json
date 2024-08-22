@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Ruleta/static/css/main.265b72fc.css",
-    "main.js": "/Ruleta/static/js/main.84135942.js",
+    "main.js": "/Ruleta/static/js/main.14bd8484.js",
     "static/media/dado1.png": "/Ruleta/static/media/dado1.189c1fac75509ff1b12a.png",
     "static/media/dado2.png": "/Ruleta/static/media/dado2.a75966dc16924b1fb7d7.png",
     "static/media/dados.png": "/Ruleta/static/media/dados.cfd5ef259d861dac559b.png",
@@ -15,10 +15,10 @@
     "static/media/ironIcon.png": "/Ruleta/static/media/ironIcon.2e6c94f7330bb8e23c76.png",
     "index.html": "/Ruleta/index.html",
     "main.265b72fc.css.map": "/Ruleta/static/css/main.265b72fc.css.map",
-    "main.84135942.js.map": "/Ruleta/static/js/main.84135942.js.map"
+    "main.14bd8484.js.map": "/Ruleta/static/js/main.14bd8484.js.map"
   },
   "entrypoints": [
     "static/css/main.265b72fc.css",
-    "static/js/main.84135942.js"
+    "static/js/main.14bd8484.js"
   ]
 }
