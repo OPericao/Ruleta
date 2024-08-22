@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Ruleta/static/css/main.265b72fc.css",
-    "main.js": "/Ruleta/static/js/main.14bd8484.js",
+    "main.css": "/Ruleta/static/css/main.8aad1e5e.css",
+    "main.js": "/Ruleta/static/js/main.6fa91f23.js",
     "static/media/dado1.png": "/Ruleta/static/media/dado1.189c1fac75509ff1b12a.png",
     "static/media/dado2.png": "/Ruleta/static/media/dado2.a75966dc16924b1fb7d7.png",
     "static/media/dados.png": "/Ruleta/static/media/dados.cfd5ef259d861dac559b.png",
@@ -12,13 +12,14 @@
     "static/media/diamondIcon.png": "/Ruleta/static/media/diamondIcon.63899e66895f6da3f3c6.png",
     "static/media/bronzeIcon.png": "/Ruleta/static/media/bronzeIcon.fe6ac48959b807dc1505.png",
     "static/media/ruleta.png": "/Ruleta/static/media/ruleta.4c07764e31b6937a572d.png",
+    "static/media/jungle.png": "/Ruleta/static/media/jungle.e7f7a771bc7d51dcd436.png",
     "static/media/ironIcon.png": "/Ruleta/static/media/ironIcon.2e6c94f7330bb8e23c76.png",
     "index.html": "/Ruleta/index.html",
-    "main.265b72fc.css.map": "/Ruleta/static/css/main.265b72fc.css.map",
-    "main.14bd8484.js.map": "/Ruleta/static/js/main.14bd8484.js.map"
+    "main.8aad1e5e.css.map": "/Ruleta/static/css/main.8aad1e5e.css.map",
+    "main.6fa91f23.js.map": "/Ruleta/static/js/main.6fa91f23.js.map"
   },
   "entrypoints": [
-    "static/css/main.265b72fc.css",
-    "static/js/main.14bd8484.js"
+    "static/css/main.8aad1e5e.css",
+    "static/js/main.6fa91f23.js"
   ]
 }
