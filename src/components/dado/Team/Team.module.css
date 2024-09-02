@@ -1,0 +1,128 @@
+.team-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    border: 3px solid hsla(0, 0%, 0%);
+    border-radius: 5px;
+    margin: 10px;
+    max-width: 500px;
+    min-height: 652px;
+}
+
+.team-title-name {
+    font-size: 2rem;
+    margin: 10px;
+    color: white;
+}
+
+.blueBackground {
+    background-color: hsl(240, 86%, 86%);
+}
+
+.redBackground {
+    background-color: hsl(0, 43%, 67%);
+}
+
+
+.team-players {
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 5px;
+    border: 3px solid hsla(0, 0%, 0%);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 90px;
+}
+
+.player-dice-icon {
+    max-width: 15%;
+    max-height: 15%;
+}
+
+.player-text {
+    font-size: 2rem;
+    flex: 1;
+}
+
+.delete-player-button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: hsl(0, 93%, 76%);
+}
+
+.delete-player-button:hover {
+    background-color: hsl(0, 93%, 51%);
+}
+
+.move-player-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.move-player-button button {
+    width: 50px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: 2px solid hsla(0, 0%, 0%);
+    background-color: hsl(0, 0%, 64%);
+}
+
+.new-player-area {
+    margin: 20px;
+    margin-top: auto;
+}
+
+.new-player-text {
+    font-size: 1.5rem;
+    padding: 10px;
+    border: 2px solid hsl(0, 0%, 80%, 0.5);
+    border-radius: 5px;
+    color: hsl(0, 0%, 0%, 0.5);
+    margin-right: 5px;
+}
+
+.add-player-team {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: hsl(125, 47%, 54%);
+}
+
+.add-player-team:hover {
+    background-color: hsl(125, 47%, 44%);
+}
+
+.team-limit-message {
+    font-size: 1.5rem;
+    padding: 10px;
+    border: 2px solid hsla(0, 0%, 0%);
+    border-radius: 5px;
+    color: white;
+    margin-right: 5px;
+    background-color: hsl(0, 0%, 30%);
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}

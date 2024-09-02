@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Selector2.css';
+import styles from './DiceSelector2.css';
+
+import Team from '../components/dado/Team/Team.jsx';
 import { addDiceRollEvent } from '../components/dado/RandomDice.js';
 import ParticipantForm from '../components/ParticipantForm.js';
 
-import topIcon from '../assets/rolIconsLoL/top.png';
-import jungleIcon from '../assets/rolIconsLoL/jungle.png';
-import midIcon from '../assets/rolIconsLoL/mid.png';
-import adcIcon from '../assets/rolIconsLoL/adc.png';
-import supportIcon from '../assets/rolIconsLoL/support.png';
+
+import topIcon from '../assets/diceIcons/lolDice/top.png';
+import jungleIcon from '../assets/diceIcons/lolDice/jungle.png';
+import midIcon from '../assets/diceIcons/lolDice/mid.png';
+import adcIcon from '../assets/diceIcons/lolDice/adc.png';
+import supportIcon from '../assets/diceIcons/lolDice/support.png';
 
 
 const Selector2 = () => {
@@ -36,24 +39,31 @@ const Selector2 = () => {
             });
         }, 0); // Este valor de 0 asegura que se ejecuta en la siguiente iteración del event loop
     }, []);
+    
 
     return (
+        <div className={styles['selector2-main-container']}>
+            
+            <div className={styles['selector2-main-header']}>
+                <Link to="/diceSelector" className={styles['back-button-link']}>
+                    <button className="back-button-selector2">⬅ Seleccionar otro método</button>
+                </Link>
+
+                <div className={styles['title-selector2']}>
+                    <h1>ENFRENTAMIENTOS DIRECTOS</h1>
+                </div>
+            </div>
+
+            <Team equipo="Azul" className={styles['blue-team']}/>
+            <Team equipo="Rojo" className={styles['red-team']}/>
+            
+        </div>
+    )
+
+    /*
+    return (
         <div className="selector2-container">
-            <Link to="/dadosSelector" className="back-button-link">
-                <button className="back-button">Cambiar tipo de dado</button>
-            </Link>
-
-            <div className="Title-container">
-                <h1>3 DADOS ENFRENTADOS</h1>
-            </div>
-
-            <div className="ParticipantForm-container">
-                <ParticipantForm
-                    initialParticipants={participants}
-                    onUpdateParticipants={handleUpdateParticipants}
-                />
-            </div>
-
+        
             <div className="dices-container">
                 <div className="dices-row">
                     <div className="dice1">
@@ -89,14 +99,14 @@ const Selector2 = () => {
                             <img src={supportIcon} alt="Support" />
                         </div>
                         <div className="face bottom">
-                            {/* Puedes dejar la cara en blanco */}
+                            {Puedes dejar la cara en blanco}
                         </div>
                     </div>
                 </div>
                 <button className="roll">Tirar los dados</button>
             </div>
         </div>
-    );
+    );*/
 };
 
 export default Selector2;

@@ -1,3 +1,56 @@
+.selector2-main-container {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+.selector2-main-header{
+    display: flex;
+    flex-direction: row;
+}
+
+.back-button-link {
+    align-self: flex-start;
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+}
+.back-button-selector2 {
+    background-color: hsl(0, 0%, 30%);
+    border: 2px solid hsla(0, 0%, 0%);
+    color: white;
+    border-radius: 5px;
+    padding: 10px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 30px;
+}
+.back-button-selector2:hover {
+    background-color: hsl(0, 0%, 20%);
+}
+
+
+.title-selector2 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+
+.blue-team{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+
+
+
+
+
+
+
+
+
 .dices-container {
     position: absolute; /* Cambia a relative si quieres que se posicione relativo a su contenedor padre */
     top: 50px; /* Ajusta según sea necesario */
@@ -166,24 +219,4 @@
 .roll:hover {
     color: #fff;
     background: #b33951;
-}
-
-.Title-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    position: relative; /* Asegura que 'top' funcione */
-    top: 40px; /* Desplaza el contenedor hacia abajo */
-    left: 400px;
-    width: 100%;
-}
-
-.ParticipantForm-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    position: relative; /* Asegura que 'top' funcione */
-    top: 70px; /* Desplaza el contenedor hacia abajo */
-    left: 40px;
-    width: 100%;
 }
