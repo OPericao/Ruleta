@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.9700b44c.css",
-    "main.js": "/static/js/main.619e9718.js",
-    "static/media/dice1.png": "/static/media/dice1.189c1fac75509ff1b12a.png",
-    "static/media/dice2.png": "/static/media/dice2.a75966dc16924b1fb7d7.png",
-    "static/media/dice.png": "/static/media/dice.cfd5ef259d861dac559b.png",
-    "static/media/goldIcon.png": "/static/media/goldIcon.7a9ab44b84ae7517743e.png",
-    "static/media/silverIcon.png": "/static/media/silverIcon.3c3f6e379378c0b44699.png",
-    "static/media/emeraldIcon.png": "/static/media/emeraldIcon.9af021386b28b99302ce.png",
-    "static/media/platinumIcon.png": "/static/media/platinumIcon.2e01d132d07df4a15a18.png",
-    "static/media/diamondIcon.png": "/static/media/diamondIcon.63899e66895f6da3f3c6.png",
-    "static/media/bronzeIcon.png": "/static/media/bronzeIcon.fe6ac48959b807dc1505.png",
-    "static/media/roulette.png": "/static/media/roulette.4c07764e31b6937a572d.png",
-    "static/media/jungle.png": "/static/media/jungle.e7f7a771bc7d51dcd436.png",
-    "static/media/ironIcon.png": "/static/media/ironIcon.2e6c94f7330bb8e23c76.png",
-    "index.html": "/index.html",
-    "main.9700b44c.css.map": "/static/css/main.9700b44c.css.map",
-    "main.619e9718.js.map": "/static/js/main.619e9718.js.map"
+    "main.css": "/Ruleta/static/css/main.9700b44c.css",
+    "main.js": "/Ruleta/static/js/main.5d707081.js",
+    "static/media/dice1.png": "/Ruleta/static/media/dice1.189c1fac75509ff1b12a.png",
+    "static/media/dice2.png": "/Ruleta/static/media/dice2.a75966dc16924b1fb7d7.png",
+    "static/media/dice.png": "/Ruleta/static/media/dice.cfd5ef259d861dac559b.png",
+    "static/media/goldIcon.png": "/Ruleta/static/media/goldIcon.7a9ab44b84ae7517743e.png",
+    "static/media/silverIcon.png": "/Ruleta/static/media/silverIcon.3c3f6e379378c0b44699.png",
+    "static/media/emeraldIcon.png": "/Ruleta/static/media/emeraldIcon.9af021386b28b99302ce.png",
+    "static/media/platinumIcon.png": "/Ruleta/static/media/platinumIcon.2e01d132d07df4a15a18.png",
+    "static/media/diamondIcon.png": "/Ruleta/static/media/diamondIcon.63899e66895f6da3f3c6.png",
+    "static/media/bronzeIcon.png": "/Ruleta/static/media/bronzeIcon.fe6ac48959b807dc1505.png",
+    "static/media/roulette.png": "/Ruleta/static/media/roulette.4c07764e31b6937a572d.png",
+    "static/media/jungle.png": "/Ruleta/static/media/jungle.e7f7a771bc7d51dcd436.png",
+    "static/media/ironIcon.png": "/Ruleta/static/media/ironIcon.2e6c94f7330bb8e23c76.png",
+    "index.html": "/Ruleta/index.html",
+    "main.9700b44c.css.map": "/Ruleta/static/css/main.9700b44c.css.map",
+    "main.5d707081.js.map": "/Ruleta/static/js/main.5d707081.js.map"
   },
   "entrypoints": [
     "static/css/main.9700b44c.css",
-    "static/js/main.619e9718.js"
+    "static/js/main.5d707081.js"
   ]
 }
